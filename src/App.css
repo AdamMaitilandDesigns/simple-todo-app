@@ -1,0 +1,114 @@
+html, body{
+
+ color: white !important;
+
+}
+
+.App {
+  min-height: 100vh;
+  padding-top: 5em;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  color: white;
+  overflow: hidden;
+}
+
+h1{
+
+  text-align: center;
+  padding-bottom: 1em;
+
+}
+
+
+form{
+
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto;
+  padding: 2em;
+  background-color: #202227;
+  margin-bottom: 1em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+.MuiTextField-root{
+
+  width: 70%;
+
+}
+
+ul{
+
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  
+}
+
+li{
+
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  width: 100% !important;
+  padding-bottom: 1em;
+
+}
+
+li:last-child{
+
+ padding-bottom: 0;
+
+}
+
+p{
+
+
+ width: 100%;
+
+}
+
+
+.css-1otz5lw-MuiPaper-root-MuiCard-root{
+
+ display: flex;
+
+}
+
+
+.slide{
+
+  animation-duration: 1s;
+  animation-name: slidein;
+  position: relative;
+
+}
+
+
+@keyframes slidein {
+
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+
+}
+
+
+
+.noTodo-message{
+
+
+  text-align: center;
+  padding-top: 1em;
+
+}

@@ -23,12 +23,36 @@ const App = () => {
   const [todos, setTodos] = useState([]);
   const [error, setError] = useState(false);
   const noTodos = 'No todos! Add a todo by using the form above';
-
   const [placeHolder, setPlaceHolder] = useState('Add task');
+  const [editId, setEditId] = useState(0);
 
   const HandelSubmit = (e) => {
 
     e.preventDefault();
+
+    if(editId){
+
+      const editTodo = todos.find(i=>i.id === editId)
+
+      const updatedTodos = todos.map(i => 
+        
+        i.id === editTodo.id
+        
+        ? (i={id: i.id, todo})
+        : console.log('ffff')
+        
+      )
+
+      setTodos(updatedTodos)
+      setEditId(0)
+      setTodo('')
+      setPlaceHolder('Add another task?')
+
+      console.log(todos)
+
+      return;
+      
+    }
 
     if (todo !== '' && todos.length < 4) {
 
@@ -36,8 +60,6 @@ const App = () => {
       setTodos([{ id: `${todo}`, todo }, ...todos])
       setTodo('')
       setPlaceHolder('Add another task?')
-
-      console.log(todos.length)
 
     }else if(todo !== '' && todos.length > 3) {
 
@@ -65,6 +87,17 @@ const App = () => {
 
   }
 
+
+  const HandelEdit = (id) => {
+
+     const edit = todos.find(i=>i.id === id)
+     setTodo(edit.todo)
+     setPlaceHolder('Edit todo')
+
+     setEditId(id)
+
+  }
+
   return (
     <div className="App">
 
@@ -88,7 +121,7 @@ const App = () => {
             
             />
 
-            <Button type="submit" sx={{ ml: 2 }} variant="contained" color="success"><AddIcon /></Button>
+            <Button type="submit" sx={{ ml: 2 }} variant="contained" color="success">{editId ? <ModeEditOutlineOutlinedIcon/> : <AddIcon /> }</Button>
 
           </form>
 
@@ -108,8 +141,8 @@ const App = () => {
 
                       <p>{t.todo}</p>
 
-                      <Button sx={{ ml: 2 }} size="small" variant="contained"><ModeEditOutlineOutlinedIcon sx={{ color: '#ffff' }} /></Button>
-                      <Button sx={{ ml: 2 }} size="small" variant="contained" color="error" onClick={() => HandelDelete(t.todo)}><DeleteOutlineIcon /></Button>
+                      <Button sx={{ ml: 2 }} size="small" variant="contained"><ModeEditOutlineOutlinedIcon sx={{ color: '#ffff' }} onClick={() => HandelEdit(t.id)} /></Button>
+                      <Button sx={{ ml: 2 }} size="small" variant="contained" color="error" onClick={() => HandelDelete(t.id)}><DeleteOutlineIcon /></Button>
 
                     </Card>
 

@@ -39,16 +39,16 @@ const App = () => {
         i.id === editTodo.id
         
         ? (i={id: i.id, todo})
-        : console.log('ffff')
+        : {id: i.id, todo: i.todo}
         
       )
 
       setTodos(updatedTodos)
       setEditId(0)
-      setTodo('')
-      setPlaceHolder('Add another task?')
 
       console.log(todos)
+      
+      setPlaceHolder('Add another task?')
 
       return;
       
@@ -133,6 +133,8 @@ const App = () => {
 
               todos.map(t => {
 
+  
+
                 return (
 
                   <li key={t.id} className="slide">
@@ -143,6 +145,7 @@ const App = () => {
 
                       <Button sx={{ ml: 2 }} size="small" variant="contained"><ModeEditOutlineOutlinedIcon sx={{ color: '#ffff' }} onClick={() => HandelEdit(t.id)} /></Button>
                       <Button sx={{ ml: 2 }} size="small" variant="contained" color="error" onClick={() => HandelDelete(t.id)}><DeleteOutlineIcon /></Button>
+
 
                     </Card>
 

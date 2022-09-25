@@ -45,9 +45,7 @@ const App = () => {
 
       setTodos(updatedTodos)
       setEditId(0)
-
-      console.log(todos)
-      
+      setTodo('')
       setPlaceHolder('Add another task?')
 
       return;
@@ -93,7 +91,6 @@ const App = () => {
      const edit = todos.find(i=>i.id === id)
      setTodo(edit.todo)
      setPlaceHolder('Edit todo')
-
      setEditId(id)
 
   }
@@ -139,7 +136,7 @@ const App = () => {
 
                   <li key={t.id} className="slide">
 
-                    <Card sx={{ padding: 2 }}>
+                    <Card sx={{ padding: 2}}>
 
                       <p>{t.todo}</p>
 
